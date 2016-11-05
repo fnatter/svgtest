@@ -52,6 +52,13 @@ public class TestAutostretch {
         label3.setBorder(BorderFactory.createLineBorder(Color.black));
         exampleImagesPanel.add(label3);
 
+        exampleImagesPanel.add(new JLabel(String.format("%dx%d, AUTOSIZE_BESTFIT", PREFERREDSIZE_WIDTH, PREFERREDSIZE_HEIGHT)));
+        final SVGIcon testIcon4 = createSVGIcon(resource, PREFERREDSIZE_WIDTH, PREFERREDSIZE_HEIGHT,
+        		SVGIcon.AUTOSIZE_BESTFIT);
+        final JLabel label4 = new JLabel(testIcon4);
+        label4.setBorder(BorderFactory.createLineBorder(Color.black));
+        exampleImagesPanel.add(label4);
+
         frame.getContentPane().add(exampleImagesPanel);
 
         frame.pack();
