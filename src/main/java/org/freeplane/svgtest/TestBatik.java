@@ -6,11 +6,14 @@ import java.awt.FlowLayout;
 import java.io.File;
 import java.net.URI;
 import java.net.URL;
+import java.util.Locale;
 
 import javax.swing.BorderFactory;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 import org.freeplane.export.ExportPdf;
 
@@ -92,7 +95,19 @@ public class TestBatik {
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 final JFrame frame = createAndShowGUI();
-                new ExportPdf().export(frame, new File("out.pdf"));
+                JFileChooser fileChooser = new JFileChooser();
+                FileNameExtensionFilter filter = new FileNameExtensionFilter(
+                        "PDF", "pdf");
+                fileChooser.setFileFilter(filter);
+                fileChooser.setDialogTitle("Choose test case result PDF");
+                if (fileChooser.showSaveDialog(frame) == JFileChooser.APPROVE_OPTION) {
+                  String selectedFile = fileChooser.getSelectedFile().getAbsolutePath();
+                  if (!selectedFile.toLowerCase(Locale.ENGLISH).endsWith(".pdf"))
+                  {
+                	  selectedFile = selectedFile + ".pdf";
+                  }
+                  new ExportPdf().export(frame, new File(selectedFile));
+                }
             }
         });
     }
