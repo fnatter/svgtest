@@ -19,7 +19,7 @@ public class TestAutostretch {
 	private static final int PREFERREDSIZE_HEIGHT = 128;
 	private static final int PREFERREDSIZE_WIDTH = 128;
 	private static SVGUniverse svgUniverse;
-	private final static String TEST_SVG = "button_ok.svg";
+	private final static String TEST_SVG = "temp.svg";
 
     private static void createAndShowGUI() {
         JFrame frame = new JFrame("svgSalamander Autostretch test");
