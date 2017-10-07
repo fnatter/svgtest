@@ -21,7 +21,9 @@ public class TestBatik {
 	private static final int PREFERREDSIZE_HEIGHT = 128;
 	private static final int PREFERREDSIZE_WIDTH = 128;
 	private static SVGUniverse svgUniverse;
-	private final static String TEST_SVG = "button_ok.svg";
+	private final static String TEST_SVG = "down.svg";
+	private final static String TEST_SVG2 = "button_ok.svg";
+	private final static String TEST_SVG3 = "internet.svg";
 
     private static JFrame createAndShowGUI() {
         JFrame frame = new JFrame("svgSalamander Autostretch test");
@@ -29,17 +31,33 @@ public class TestBatik {
         frame.setPreferredSize(new Dimension(800, 600));
 
         final URL resource = ClassLoader.getSystemResource(TEST_SVG);
+        final URL resource2 = ClassLoader.getSystemResource(TEST_SVG2);
+        final URL resource3 = ClassLoader.getSystemResource(TEST_SVG3);
         
         final JPanel exampleImagesPanel = new JPanel();
         exampleImagesPanel.setLayout(new FlowLayout());
         
-        exampleImagesPanel.add(new JLabel(String.format("%dx%d, AUTOSIZE_STRETCH", PREFERREDSIZE_WIDTH, PREFERREDSIZE_HEIGHT)));
+        exampleImagesPanel.add(new JLabel(String.format("First test case with broken colors")));
         final SVGIcon testIcon1 = createSVGIcon(resource, PREFERREDSIZE_WIDTH, PREFERREDSIZE_HEIGHT,
         		SVGIcon.AUTOSIZE_STRETCH);
         final JLabel label1 = new JLabel(testIcon1);
         label1.setBorder(BorderFactory.createLineBorder(Color.black));
         exampleImagesPanel.add(label1);
         
+        exampleImagesPanel.add(new JLabel(String.format("Second test case with broken colors")));
+        final SVGIcon testIcon2 = createSVGIcon(resource2, PREFERREDSIZE_WIDTH, PREFERREDSIZE_HEIGHT,
+        		SVGIcon.AUTOSIZE_HORIZ);
+        final JLabel label2 = new JLabel(testIcon2);
+        label2.setBorder(BorderFactory.createLineBorder(Color.black));
+        exampleImagesPanel.add(label2);
+
+        exampleImagesPanel.add(new JLabel(String.format("Third test case with broken colors")));
+        final SVGIcon testIcon3 = createSVGIcon(resource3, PREFERREDSIZE_WIDTH, PREFERREDSIZE_HEIGHT,
+        		SVGIcon.AUTOSIZE_HORIZ);
+        final JLabel label3 = new JLabel(testIcon3);
+        label3.setBorder(BorderFactory.createLineBorder(Color.black));
+        exampleImagesPanel.add(label3);
+
         frame.getContentPane().add(exampleImagesPanel);
 
         frame.pack();
