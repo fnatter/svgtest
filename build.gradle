@@ -18,7 +18,7 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 dependencies {
-    compile ':kitfox-svg-salamander-1.1.1'
+    compile ':kitfox-svg-salamander-1.1.1-p1'
     compile 'org.apache.xmlgraphics:batik-anim:1.7',
             'org.apache.xmlgraphics:batik-awt-util:1.7',
             'org.apache.xmlgraphics:batik-bridge:1.7',
