@@ -19,30 +19,32 @@ targetCompatibility = 1.8
 
 dependencies {
     compile ':kitfox-svg-salamander-1.1.1-p1'
-    compile 'org.apache.xmlgraphics:batik-anim:1.7',
-            'org.apache.xmlgraphics:batik-awt-util:1.7',
-            'org.apache.xmlgraphics:batik-bridge:1.7',
-            'org.apache.xmlgraphics:batik-codec:1.7',
-            'org.apache.xmlgraphics:batik-css:1.7',
-            'org.apache.xmlgraphics:batik-dom:1.7',
-            'org.apache.xmlgraphics:batik-extension:1.7',
-            'org.apache.xmlgraphics:batik-ext:1.7',
-            'org.apache.xmlgraphics:batik-gui-util:1.7',
-            'org.apache.xmlgraphics:batik-gvt:1.7',
-            'org.apache.xmlgraphics:batik-parser:1.7',
-            'org.apache.xmlgraphics:batik-script:1.7',
-            'org.apache.xmlgraphics:batik-svg-dom:1.7',
-            'org.apache.xmlgraphics:batik-svggen:1.7',
-            'org.apache.xmlgraphics:batik-swing:1.7',
-            'org.apache.xmlgraphics:batik-transcoder:1.7',
-            'org.apache.xmlgraphics:batik-util:1.7',
-            'org.apache.xmlgraphics:batik-xml:1.7',
+    compile 'org.apache.xmlgraphics:batik-anim:1.9',
+            'org.apache.xmlgraphics:batik-awt-util:1.9',
+            'org.apache.xmlgraphics:batik-bridge:1.9',
+            'org.apache.xmlgraphics:batik-codec:1.9',
+            'org.apache.xmlgraphics:batik-css:1.9',
+            'org.apache.xmlgraphics:batik-dom:1.9',
+            'org.apache.xmlgraphics:batik-extension:1.9',
+            'org.apache.xmlgraphics:batik-ext:1.9',
+            'org.apache.xmlgraphics:batik-gui-util:1.9',
+            'org.apache.xmlgraphics:batik-gvt:1.9',
+            'org.apache.xmlgraphics:batik-parser:1.9',
+            'org.apache.xmlgraphics:batik-script:1.9',
+            'org.apache.xmlgraphics:batik-svg-dom:1.9',
+            'org.apache.xmlgraphics:batik-svggen:1.9',
+            'org.apache.xmlgraphics:batik-swing:1.9',
+            'org.apache.xmlgraphics:batik-transcoder:1.9',
+            'org.apache.xmlgraphics:batik-util:1.9',
+            'org.apache.xmlgraphics:batik-xml:1.9',
 
             'org.mozilla:rhino:1.7R4', // "js.jar"/librhino-java
 
             // cannot pull this due to broken "avalon" dependency
             // (replaced by ./lib/pdf-transcoder.jar below):
             //'org.apache.xmlgraphics:fop:1.1', // "fop.jar"/libfop-java
+            ':fop-2.1',
+            ':avalon-framework-4.2.0',
 
             // libxml-commons-external-java 1.4.01
             //WRONG: 'org.apache.xmlgraphics:xmlgraphics-commons:1.4'
