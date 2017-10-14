@@ -113,9 +113,9 @@ public class GradientExtensionHandler extends DefaultExtensionHandler
 		if (!tf.isIdentity())
 		{
 			String matrix = "matrix(" + 
-					tf.getScaleX() + " " + tf.getShearX() + " " + tf.getTranslateX() + " " + 
-					tf.getScaleY() + " " + tf.getShearY() + " " + tf.getTranslateY() + ")";
-			gradElem.setAttribute(SVG_TRANSFORM_ATTRIBUTE, matrix);
+			tf.getScaleX() + " " + tf.getShearY() + " " + tf.getShearX() + " " + 
+			tf.getScaleY() + " " + tf.getTranslateX() + " " + tf.getTranslateY() + ")";
+			gradElem.setAttribute(SVG_GRADIENT_TRANSFORM_ATTRIBUTE, matrix);
 		}
 
 		// Convert gradient stops
