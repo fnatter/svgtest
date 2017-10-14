@@ -33,6 +33,7 @@ public abstract class ExportVectorGraphic {
 			final SVGGeneratorContext ctx = SVGGeneratorContext.createDefault(domFactory);
 			ctx.setEmbeddedFontsOn(true);
 			
+			System.out.println(ctx.getExtensionHandler());
 			ctx.setExtensionHandler(new GradientExtensionHandler());
 			
 			final GraphicContextDefaults defaults = new GraphicContextDefaults();

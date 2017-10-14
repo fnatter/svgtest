@@ -16,6 +16,7 @@ import javax.swing.JPanel;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 import org.freeplane.export.ExportPdf;
+import org.freeplane.export.ExportSvg;
 
 import com.kitfox.svg.SVGUniverse;
 import com.kitfox.svg.app.beans.SVGIcon;
@@ -23,6 +24,9 @@ import com.kitfox.svg.app.beans.SVGIcon;
 public class TestBatik {
 	private static final int PREFERREDSIZE_HEIGHT = 128;
 	private static final int PREFERREDSIZE_WIDTH = 128;
+	
+	private static final boolean exportSvg = true;
+	
 	private static SVGUniverse svgUniverse;
 	private final static String TEST_SVG = "down.svg";
 	private final static String TEST_SVG2 = "button_ok.svg";
@@ -95,22 +99,50 @@ public class TestBatik {
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 final JFrame frame = createAndShowGUI();
-                JFileChooser fileChooser = new JFileChooser();
-                FileNameExtensionFilter filter = new FileNameExtensionFilter(
-                        "PDF", "pdf");
-                fileChooser.setFileFilter(filter);
-                fileChooser.setDialogTitle("Choose test case result PDF");
-                if (fileChooser.showSaveDialog(frame) == JFileChooser.APPROVE_OPTION) {
-                  String selectedFile = fileChooser.getSelectedFile().getAbsolutePath();
-                  if (!selectedFile.toLowerCase(Locale.ENGLISH).endsWith(".pdf"))
-                  {
-                	  selectedFile = selectedFile + ".pdf";
-                  }
-                  new ExportPdf().export(frame, new File(selectedFile));
+                if (exportSvg)
+                {
+                	exportToSvg(frame);
+                }
+                else
+                {
+                	exportToPdf(frame);
                 }
             }
         });
     }
  
 
+	private static void exportToPdf(JFrame frame)
+	{
+        JFileChooser fileChooser = new JFileChooser();
+        FileNameExtensionFilter filter = new FileNameExtensionFilter(
+                "PDF", "pdf");
+        fileChooser.setFileFilter(filter);
+        fileChooser.setDialogTitle("Choose test case result PDF");
+        if (fileChooser.showSaveDialog(frame) == JFileChooser.APPROVE_OPTION) {
+          String selectedFile = fileChooser.getSelectedFile().getAbsolutePath();
+          if (!selectedFile.toLowerCase(Locale.ENGLISH).endsWith(".pdf"))
+          {
+        	  selectedFile = selectedFile + ".pdf";
+          }
+          new ExportPdf().export(frame, new File(selectedFile));
+        }
+	}
+
+	private static void exportToSvg(JFrame frame)
+	{
+        JFileChooser fileChooser = new JFileChooser();
+        FileNameExtensionFilter filter = new FileNameExtensionFilter(
+                "SVG", "svg");
+        fileChooser.setFileFilter(filter);
+        fileChooser.setDialogTitle("Choose test case result SVG");
+        if (fileChooser.showSaveDialog(frame) == JFileChooser.APPROVE_OPTION) {
+          String selectedFile = fileChooser.getSelectedFile().getAbsolutePath();
+          if (!selectedFile.toLowerCase(Locale.ENGLISH).endsWith(".svg"))
+          {
+        	  selectedFile = selectedFile + ".svg";
+          }
+          new ExportSvg().export(frame, new File(selectedFile));
+        }
+	}
 }
