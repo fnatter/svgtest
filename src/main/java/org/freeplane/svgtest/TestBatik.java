@@ -25,7 +25,7 @@ public class TestBatik {
 	private static final int PREFERREDSIZE_HEIGHT = 128;
 	private static final int PREFERREDSIZE_WIDTH = 128;
 	
-	private static final boolean exportSvg = true;
+	private static final boolean exportSvg = false;
 	
 	private static SVGUniverse svgUniverse;
 	private final static String TEST_SVG = "down.svg";
