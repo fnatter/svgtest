@@ -31,6 +31,8 @@ public class TestBatik {
 	private final static String TEST_SVG = "down.svg";
 	private final static String TEST_SVG2 = "button_ok.svg";
 	private final static String TEST_SVG3 = "internet.svg";
+	private final static String TEST_SVG4 = "rihard_plus.svg";
+	private final static String TEST_SVG5 = "rihard_minus.svg";
 
     private static JFrame createAndShowGUI() {
         JFrame frame = new JFrame("svgSalamander Autostretch test");
@@ -40,6 +42,8 @@ public class TestBatik {
         final URL resource = ClassLoader.getSystemResource(TEST_SVG);
         final URL resource2 = ClassLoader.getSystemResource(TEST_SVG2);
         final URL resource3 = ClassLoader.getSystemResource(TEST_SVG3);
+        final URL resource4 = ClassLoader.getSystemResource(TEST_SVG4);
+        final URL resource5 = ClassLoader.getSystemResource(TEST_SVG5);
         
         final JPanel exampleImagesPanel = new JPanel();
         exampleImagesPanel.setLayout(new FlowLayout());
@@ -64,6 +68,20 @@ public class TestBatik {
         final JLabel label3 = new JLabel(testIcon3);
         label3.setBorder(BorderFactory.createLineBorder(Color.black));
         exampleImagesPanel.add(label3);
+
+        exampleImagesPanel.add(new JLabel(String.format("Broken icon?")));
+        final SVGIcon testIcon4 = createSVGIcon(resource4, PREFERREDSIZE_WIDTH, PREFERREDSIZE_HEIGHT,
+        		SVGIcon.AUTOSIZE_HORIZ);
+        final JLabel label4 = new JLabel(testIcon4);
+        label4.setBorder(BorderFactory.createLineBorder(Color.black));
+        exampleImagesPanel.add(label4);
+
+        exampleImagesPanel.add(new JLabel(String.format("Broken icon?")));
+        final SVGIcon testIcon5 = createSVGIcon(resource5, PREFERREDSIZE_WIDTH, PREFERREDSIZE_HEIGHT,
+        		SVGIcon.AUTOSIZE_HORIZ);
+        final JLabel label5 = new JLabel(testIcon5);
+        label5.setBorder(BorderFactory.createLineBorder(Color.black));
+        exampleImagesPanel.add(label5);
 
         frame.getContentPane().add(exampleImagesPanel);
 
